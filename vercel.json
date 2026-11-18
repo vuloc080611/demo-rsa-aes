@@ -1,0 +1,28 @@
+{
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/js/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "sec-fetch-dest",
+          "value": "document"
+        }
+      ],
+      "destination": "/404.html"
+    },
+    {
+      "source": "/tests/:path*.js",
+      "has": [
+        {
+          "type": "header",
+          "key": "sec-fetch-dest",
+          "value": "document"
+        }
+      ],
+      "destination": "/404.html"
+    }
+  ]
+}
